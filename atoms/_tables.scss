@@ -1,0 +1,50 @@
+/*-------------------------------------------------------*\
+    Tables
+/*-------------------------------------------------------*/
+
+table {
+    margin-bottom: 2.5rem;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #E1E1E1;
+}
+
+th:first-child, td:first-child {
+    padding-left: 0;
+}
+
+th:last-child, td:last-child {
+    padding-right: 0;
+}
+
+.table {
+    display: table;
+    width: 100%;
+    .tr {
+        display: table-row;
+        height: 40px;
+
+    	&:nth-child(even) {
+    		background: #f7f7f7;
+    	}
+    }
+    .td {
+        display: table-cell;
+                padding: 0 10px;
+        vertical-align: middle;;
+        .fa {
+        	
+        }
+    }
+    .th {
+        display: table-row;
+        background: #f7f7f7;
+        color: #fff;
+        height: 40px;
+        font-weight: $normal;
+        text-transform: uppercase;
+    }
+}

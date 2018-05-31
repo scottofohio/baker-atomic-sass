@@ -1,0 +1,280 @@
+/*-------------------------------------------------------*\
+    Banners
+/*-------------------------------------------------------*/
+.banner {
+  padding: 40px;
+  // 
+  text-align: center;
+
+  ul li, ol li {
+    a {
+      @include break-at($large-break) {
+        font-size: 18px;
+        font-size: 1.8vw;
+      }
+
+    }
+
+    @include break-at($large-break) {
+      font-size: 18px;
+      font-size: 1.8vw;
+    }
+
+  }
+
+  p {
+    @include break-at($large-break) {
+      font-size: 18px;
+      font-size: 1.8vw;
+    }
+
+    @include break-at($medium-break) {
+      margin: 20px auto 10px auto;
+      max-width: 50%;
+    }
+
+  }
+
+  >.section-heading {
+    text-align: center;
+    margin-bottom: 10px;
+
+    &:after {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+  }
+
+  &.split {
+    text-align: left;
+    padding: 0;
+    @include clearfix();
+
+    &.reverse {
+      >section {
+        @include break-at($small-break) {
+          float: right;
+        }
+
+      }
+
+      >figure {
+        @include break-at($small-break) {
+          float: left;
+        }
+
+      }
+
+    }
+
+    &.two-third {
+      >section {
+        @include break-at($medium-break) {
+          width: 45%;
+          float: right;
+        }
+
+      }
+
+      >figure {
+        @include break-at($medium-break) {
+          width: 55%;
+          float: left;
+        }
+
+      }
+
+    }
+
+    p {
+      margin: 0;
+      max-width: 100%;
+    }
+
+    >section {
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      padding: 40px 20px;
+
+      @include break-at($small-break) {
+        padding: 40px;
+        width: 50%;
+        float: left;
+      }
+
+      &.freedom-background {
+        h2, p, ol li, ul li {
+          color: #fff;
+        }
+
+      }
+
+      @include break-at($medium-break) {
+        padding: 80px;
+      }
+
+      @include break-at($large-break) {
+        padding: 120px;
+      }
+
+    }
+
+    >figure {
+      @include break-max-at($small-break) {
+        background-image: none !important;
+      }
+
+      @include break-at($small-break) {
+        float: right;
+        width: 50%;
+        background-size: cover;
+
+        img {
+          display: none;
+        }
+
+      }
+
+    }
+
+    &.text-right {
+    }
+
+  }
+
+  >.majesty-background {
+    color: #fff;
+
+    h2, p, ol li, ul li {
+      color: #fff;
+    }
+
+    .button {
+    }
+
+  }
+
+  @include break-at($large-break) {
+    padding: 80px;
+  }
+
+}
+
+@supports(display:grid) {
+  .banner {
+    &.split {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+      &.two-third {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+
+        >section {
+          grid-column: 1 / span 12;
+
+          @include break-at($medium-break) {
+            grid-column: 1 / span 5;
+          }
+
+        }
+
+        >figure {
+          grid-column: 1 / span 12;
+
+          @include break-at($medium-break) {
+            grid-column: 6 / span 7;
+          }
+
+        }
+
+      }
+
+      &.reverse {
+        &.two-third {
+          display: grid;
+          grid-template-columns: repeat(12, 1fr);
+          grid-column-gap: 0;
+
+          >section {
+            grid-row: 2;
+            grid-column: 1 / span 12;
+
+            @include break-at($small-break) {
+              grid-column: 8 / span 5;
+              grid-row: 1;
+              width: auto;
+              float: none;
+            }
+
+          }
+
+          >figure {
+            grid-row: 1;
+            grid-column: 1 / span 12;
+
+            @include break-at($small-break) {
+              grid-column: 1 / span 7;
+              width: auto;
+              float: none;
+            }
+
+          }
+
+        }
+
+        >figure {
+          grid-column: 1 / span 12;
+
+          @include break-at($small-break) {
+            grid-column: 1 / span 1;
+          }
+
+          grid-row: 1;
+        }
+
+        >section {
+          grid-column: 1 / span 12;
+
+          @include break-at($small-break) {
+            grid-column: 2 / span 1;
+          }
+
+        }
+
+      }
+
+      >section {
+        grid-row: 2;
+        grid-column: 1 /span 2;
+        width: auto;
+        float: none;
+
+        @include break-at($small-break) {
+          grid-column: 1 / span 1;
+          grid-row: 1;
+          float: none;
+        }
+
+      }
+
+      >figure {
+        grid-row: 1;
+        grid-column: 1 /span 2;
+        width: auto;
+        float: none;
+
+        @include break-at($small-break) {
+          grid-column: 2 / span 1;
+          float: none;
+        }
+
+      }
+
+    }
+
+  }
+
+}

@@ -1,0 +1,427 @@
+/*-------------------------------------------------------*\
+    Mixins
+/*-------------------------------------------------------*/
+
+
+/*  Column push
+-------------------------------------------------------*/
+
+@mixin wrapper($smPaddingpx: 20px, $largePaddingpx: 40px, $largePaddingvw: 2.8vw 2.8vw 4.8vw 2.8vw) {
+    max-width: $grid-width;
+    margin: 0 auto;
+    padding: $smPaddingpx;
+    max-width: 100vw;
+    @include break-at($grid-width) {
+        padding: $largePaddingpx;
+        padding: $largePaddingvw;
+    }
+}
+
+@mixin push($columns) {
+    $margin: column($columns) + percentage($gutter-width, $grid-width);
+    margin-left: $margin;
+}
+
+
+/*  Clearfix
+-------------------------------------------------------*/
+
+@mixin clearfix() {
+    &:before, &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+
+/*  Breakpoints
+-------------------------------------------------------*/
+
+@mixin break-at($point) {
+    @media screen and (min-width: $point) {
+        @content;
+    }
+}
+
+@mixin break-max-at($point) {
+    @media screen and (max-width: $point) {
+        @content;
+    }
+}
+
+@mixin prefix($property, $value, $prefixes: ('webkit', 'moz', 'ms')) {
+    @each $prefix in $prefixes {
+        #{'-' + $prefix + '-' + $property}: $value;
+    }
+    // Output standard non-prefixed declaration
+    #{$property}: $value;
+}
+
+@mixin cubicTransition($a, $b, $c, $d, $time) {
+    -webkit-transition: all $time cubic-bezier($a, $b, $c, $d);
+    -moz-transition: all $time cubic-bezier($a, $b, $c, $d);
+    -o-transition: all $time cubic-bezier($a, $b, $c, $d);
+    transition: all $time cubic-bezier($a, $b, $c, $d);
+}
+
+
+/*-------------------------------------------------------*\
+    Mixins
+/*-------------------------------------------------------*/
+
+@mixin prefix($property, $value, $prefixes: ('webkit', 'moz', 'ms')) {
+    @each $prefix in $prefixes {
+        #{'-' + $prefix + '-' + $property}: $value;
+    }
+    // Output standard non-prefixed declaration
+    #{$property}: $value;
+}
+
+
+/*  Column push
+-------------------------------------------------------*/
+
+@mixin push($columns) {
+    $margin: column($columns) + percentage($gutter-width, $grid-width);
+    margin-left: $margin;
+}
+
+
+/*  Breakpoints
+-------------------------------------------------------*/
+
+@mixin break-at($point) {
+    @media screen and (min-width: $point) {
+        @content;
+    }
+}
+
+
+/*-------------------------------------------------------*\
+    Mixins
+/*-------------------------------------------------------*/
+
+
+/*  Column width
+-------------------------------------------------------*/
+
+@mixin columns($columns, $omega: false) {
+    float: left;
+    width: column($columns);
+    @if $omega==omega {
+        padding: 0;
+        // margin-right: 0;
+    }
+    @else {
+        padding: 0 $gutter-width;
+        // margin-right: percentage($gutter-width, $grid-width);
+    }
+}
+
+
+/*  Column push
+-------------------------------------------------------*/
+
+@mixin push($columns) {
+    $margin: column($columns) + percentage($gutter-width, $grid-width);
+    margin-left: $margin;
+}
+
+
+/*  Clearfix
+-------------------------------------------------------*/
+
+@mixin clearfix {
+    &:before, &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+
+/*  Breakpoints
+-------------------------------------------------------*/
+
+@mixin break-at($point) {
+    @media screen and (min-width: $point) {
+        @content;
+    }
+}
+
+@mixin break-max-at($point) {
+    @media screen and (max-width: $point) {
+        @content;
+    }
+}
+
+@mixin row() {
+    width: 100%;
+    margin: 0 auto;
+    @include clearfix;
+    max-width: 1000px;
+}
+
+@mixin col($large-cols: $columns, $med-cols: $large-cols, $sm-cols: $columns) {
+    min-height: 1px;
+    float: left;
+    padding-left: $gutter-width;
+    padding-right: $gutter-width;
+    width: percentage($sm-cols, $columns);
+    @include break-at($medium-break) {
+        width: percentage($med-cols, $columns);
+    }
+    @include break-at($large-break) {
+        width: percentage($large-cols, $columns);
+    }
+}
+
+
+/*  Prefix Helpers
+-------------------------------------------------------*/
+
+@mixin prefix($property, $value, $prefixes: ('webkit', 'moz', 'ms', 'o')) {
+    @each $prefix in $prefixes {
+        #{'-' + $prefix + '-' + $property}: $value;
+    }
+    #{$property}: $value;
+}
+
+@mixin prefixer($property, $value, $prefixes: ('webkit', 'moz', 'ms', 'o')) {
+    @include prefix($property, $value, $prefixes);
+}
+
+@mixin property-prefixer($property, $value, $prefixes: ('webkit', 'moz', 'ms')) {
+    #{$property}: $value;
+    @each $prefix in $prefixes {
+        $property: #{'-' + $prefix + '-' + $value};
+    }
+    // Output standard non-prefixed declaration
+}
+
+@mixin transition($type: all, $time: 0.25s, $easing: cubic-bezier(0, 0.32, 0, 1.12)) {
+    -webkit-transition: $type $time $easing;
+    -moz-transition: $type $time $easing;
+    -ms-transition: $type $time $easing;
+    -o-transition: $type $time $easing;
+    transition: $type $time $easing;
+    // @include backface-visibility(hidden);
+}
+
+@mixin transform($option) {
+    -webkit-transform: $option;
+    -moz-transform: $option;
+    -ms-transform: $option;
+    -o-transform: $option;
+    transform: $option;
+}
+
+@mixin disable-prefix-for-all {
+    $prefix-for-webkit: false !global;
+    $prefix-for-mozilla: false !global;
+    $prefix-for-microsoft: false !global;
+    $prefix-for-opera: false !global;
+    $prefix-for-spec: false !global;
+}
+
+@mixin box-sizing($box) {
+    @include prefixer(box-sizing, $box, webkit moz spec);
+}
+
+@mixin mobile-menu-box-shadow($a, $b, $c, $d, $e, $f, $color) {
+    -webkit-box-shadow: $a $b $c $color, $d $e $f $color;
+    -moz-box-shadow: $a $b $c $color, $d $e $f $color;
+    -o-box-shadow: $a $b $c $color, $d $e $f $color;
+    -ms-box-shadow: $a $b $c $color, $d $e $f $color;
+    box-shadow: $a $b $c $color, $d $e $f $color;
+}
+
+
+/*  Miscellaneous Helpers
+-------------------------------------------------------*/
+
+@mixin table {
+    display: table;
+}
+
+@mixin table-cell($vertical-align: middle) {
+    display: table-cell;
+    vertical-align: $vertical-align;
+}
+
+@mixin hidden-overlay($background: none, $width: 100%, $height: 100%) {
+    position: relative;
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        z-index: 2;
+        left: 0;
+        top: 0;
+        width: $width;
+        height: $height;
+    }
+    &.enabled {
+        &:before {
+            display: none;
+        }
+    }
+}
+
+@mixin bg-img-and-color($color, $img-url) {
+    background-image: linear-gradient(to right, $color, $color), url($img-url);
+}
+
+@mixin font-awesome-icon($font-awesome-class, $padding: 0) {
+    @extend .#{$font-awesome-class};
+    &:before {
+        @extend .fa;
+        padding: $padding;
+    }
+}
+
+@mixin modal-close-btn($important: null) {
+    @include font-awesome-icon("fa-close");
+    z-index: 99999999999#{$important};
+    top: 25px#{$important};
+    right: 25px#{$important};
+    position: fixed#{$important};
+    left: auto#{$important};
+    bottom: auto#{$important};
+    text-shadow: none#{$important};
+    font-weight: 100#{$important};
+    color: unquote("transparent#{$important}");
+    display: block#{$important};
+    background: unquote("#{rgba($primary-brand-color, 0.6)}#{$important}");
+    border: unquote("#{3px solid white}#{$important}");
+    border-radius: 100%#{$important};
+    height: 50px#{$important};
+    width: 50px#{$important};
+    text-align: center#{$important};
+    padding: 1px#{$important};
+    &:before {
+        color: unquote("white#{$important}");
+        font-size: unquote("#{$h3-font-size}#{$important}");
+        @include transition(all, 0.15s, ease);
+    }
+    &:hover {
+        color: unquote("#{$primary-brand-color}#{$important}");
+        text-decoration: none#{$important};
+        cursor: pointer#{$important};
+        @include transition(all, 0.25s);
+        &:before {
+            @include prefixer(transform, rotate(25deg));
+            @include prefixer(filter, blur(0.01em));
+        }
+    }
+}
+
+@mixin show-for-sr() {
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+}
+
+@mixin show-for-all() {
+    clip: auto;
+    height: auto;
+    overflow: visible;
+    width: auto;
+}
+
+@mixin optional-at-root($sel) {
+    @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+        @content;
+    }
+}
+
+
+/* Style text input placeholder text */
+
+@mixin placeholder-styles {
+    @include optional-at-root('::-webkit-input-placeholder') {
+        @content;
+    }
+    @include optional-at-root(':-moz-placeholder') {
+        @content;
+    }
+    @include optional-at-root('::-moz-placeholder') {
+        @content;
+    }
+    @include optional-at-root(':-ms-input-placeholder') {
+        @content;
+    }
+}
+
+@mixin backface-visibility ($arguments) {
+    -webkit-backface-visibility: $arguments;
+    -moz-backface-visibility: $arguments;
+    -ms-backface-visibility: $arguments;
+    -o-backface-visibility: $arguments;
+    backface-visibility: $arguments;
+}
+
+@mixin gradient-bg-horizontal($top, $bottom, $img: false, $stop: 100%) {
+    background: $top;
+    @if $img !=false {
+        background-image: -webkit-linear-gradient(135deg, $top 0, $bottom $stop), url($img);
+        background-image: -moz-linear-gradient(135deg, $top 0, $bottom $stop), url($img);
+        background-image: -ms-linear-gradient(135deg, $top 0, $bottom $stop), url($img);
+        background-image: linear-gradient(135deg, $top 0, $bottom $stop), url($img);
+    }
+    @else {
+        background-image: -webkit-linear-gradient(135deg, $top 0, $bottom $stop);
+        background-image: -moz-linear-gradient(135deg, $top 0, $bottom $stop);
+        background-image: -ms-linear-gradient(135deg, $top 0, $bottom $stop);
+        background-image: linear-gradient(135deg, $top 0, $bottom $stop);
+    }
+}
+
+@mixin gradient-bg-vertical($bottom, $top, $img: false, $stop: 100%) {
+    @if $img !=false {
+        background-image: -webkit-linear-gradient(0deg, $top 0, $bottom $stop), url($img);
+        background-image: -moz-linear-gradient(0deg, $top 0, $bottom $stop), url($img);
+        background-image: -ms-linear-gradient(0deg, $top 0, $bottom $stop), url($img);
+        background-image: linear-gradient(0deg, $top 0, $bottom $stop), url($img);
+    }
+    @else {
+        background-image: -webkit-linear-gradient(0deg, $top 0, $bottom $stop);
+        background-image: -moz-linear-gradient(0deg, $top 0, $bottom $stop);
+        background-image: -ms-linear-gradient(0deg, $top 0, $bottom $stop);
+        background-image: linear-gradient(0deg, $top 0, $bottom $stop);
+    }
+}
+
+@mixin stroked-circle($fill-color: $primary-brand-color, $border-color: white, $width: 7px) {
+    color: transparent;
+    border: 1px solid $border-color;
+    width: $width;
+    height: $width;
+    display: block;
+    position: absolute;
+    border-radius: 100%;
+    background: $fill-color;
+    content: ' ';
+}
+
+@mixin container_pad() {
+    padding-left: em(20px);
+    padding-right: em(20px);
+     @include break-at($small-break) {
+    padding-left: em(40px);
+    padding-right: em(40px);
+    }
+    @include break-at($large-break) {
+        padding-left: em(80px);
+        padding-right: em(80px);
+        padding-left: vw(80px);
+        padding-right: vw(80px);
+    }
+}

@@ -1,0 +1,159 @@
+/*-------------------------------------------------------*\
+    Typography
+/*-------------------------------------------------------*/
+
+/* Font Sizes */
+
+$body-copy-size: 15px !default;
+/* Typeface Classes */
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    line-height: 1.1;
+    color: $primary
+    font-family: $primary_font;
+   
+  
+}
+h1, .h1, h1 a, .h1 a {
+    font-size: 38px;
+    @include break-at($medium-break) {
+    font-size: em(60px);
+    font-size: 5vw;
+    }
+}
+h2, .h2, h2 a, .h2 a {
+    font-size: 26px;
+    @include break-at($medium-break) {
+        font-size: em(45px);
+        font-size: 3vw;
+    }
+}
+h3, .h3, h3 a, .h3 a {
+    font-size: em(20px);
+    @include break-at($medium-break) {
+        font-size: em(35px);
+        font-size: 2vw;
+    }
+}
+h4, .h4, h4 a, .h4 a {
+    font-size: 16px;
+    @include break-at($medium-break) {
+        font-size: em(22px);
+        font-size: 1.5vw;
+    }
+
+}
+h5, .h5, h5 a, .h5 a {
+    font-size: em(15px);
+    @include break-at($medium-break) {
+        font-size: 1vw;
+    }
+}
+h6, .h6, h6 a, .h6 a {
+    font-size: em(14px);
+    @include break-at($medium-break) {
+        font-size: 0.8vw;
+    }
+}
+
+p {
+    &.medium-text {
+        font-size: em(18px);
+         @include break-at($large-break) {
+            font-size: 1.8vw;
+        }
+    }
+    &.large-text {
+        font-size: em(20px);
+         @include break-at($large-break) {
+            font-size: 2vw;
+        }
+    }
+}
+
+p, figcaption, label {
+    padding-bottom: $pgap;
+    margin: 0;
+    line-height: 1.4;
+    @include rasmus(400, normal);
+    color: $primary;
+    font-family: $secondary_font;
+    font-size: em(16px);
+    padding-bottom: 10px;
+    margin-bottom: 0;
+    @include break-at($large-break) {
+        font-size: 1.3vw;
+    }
+    &.large {
+        font-size: em(18px);
+        @include break-at($large-break) {
+            font-size: 1.8vw;
+        }
+    }
+    &.x-large {
+        font-size: em(24px);
+        @include break-at($large-break) {
+            font-size: 2.2vw;
+        }
+    }
+}
+hr {
+    border: 0;
+    height: 0;
+    border-top: 0;
+    border-bottom: 1px solid rgba(233, 233, 233, 1);
+}
+%sub-super {
+    vertical-align: baseline;
+    position: relative;
+}
+sup {
+    @extend %sub-super;
+    top: -0.4em;
+}
+sub {
+    @extend %sub-super;
+    top: 0.4em;
+}
+.lowercase {
+    text-transform: lowercase;
+}
+.uppercase {
+    text-transform: uppercase;
+}
+.title-case {
+    text-transform: capitalize;
+}
+nav ul {
+    padding-left: 0;
+    list-style: none;
+    li {
+        padding-left: 0;
+    }
+}
+ol {
+    list-style: decimal inside;
+}
+ul, ol {
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: em(10px);
+    color: $primary;
+    @include rasmus(400, normal); 
+    li {
+        font-size: em(15px);
+        font-weight: normal;
+        @include break-at($x-large-break) {
+            font-size: vw(13px);
+        }
+    }
+    ul, ol {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+li {
+    margin-bottom: em(8px);
+}

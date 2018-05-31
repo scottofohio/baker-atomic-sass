@@ -1,0 +1,49 @@
+/*-------------------------------------------------------*\
+   ATOMS:  Buttons
+/*-------------------------------------------------------*/
+.button {
+  display: inline-block;
+  text-align: center;
+  font-weight: 600;
+  line-height: normal;
+  text-decoration: none;
+  white-space: nowrap;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  border: solid 3px transparent;
+  cursor: pointer;
+  overflow: hidden;
+  @include transition();
+  @extend .champion-lightweight;
+  background: $primary;
+  color: #fff;
+  padding: 10px 18px 8px 22px;
+  font-size: em(14px);
+
+  @include break-at($large-break) {
+    font-size: 1.1vw;
+  }
+
+  &:hover {
+    text-decoration: none;
+    background: transparent;
+    color: $primary;
+    border-color: $primary;
+  }
+
+  &.outline {
+    border-color: $primary;
+    background: none;
+    color: $primary;
+
+    &:hover {
+      color: #fff;
+      background: $primary;
+      border-color: transparent;
+    }
+
+  }
+
+}

@@ -1,0 +1,40 @@
+/*-------------------------------------------------------*\
+    Functions
+/*-------------------------------------------------------*/
+
+@function percentage($size, $width: $columns) {
+    @return $size / $width * 100%;
+}
+
+@function column($value) {
+    @return percentage($value, $columns);
+}
+
+@function em($px, $base: $base-font-size) {
+    @return $px / $base * 1em;
+}
+
+@function multiply($value-one, $value-two) {
+    @return ($value-one * $value-two);
+}
+
+@function divide($value-one, $value-two) {
+    @return ($value-one / $value-two);
+}
+
+@function subtraction($value-one, $value-two) {
+    @return ($value-one - $value-two);
+}
+
+@function addition($value-one, $value-two) {
+    @return ($value-one + $value-two);
+}
+
+@function negative($value) {
+    @return ($value * -1);
+}
+
+@function vw($target) { 
+  $vw-context: (1000*.01) * 1px;
+  @return ($target/$vw-context) * 1vw;
+}

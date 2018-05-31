@@ -1,0 +1,41 @@
+##########
+# Common
+##########
+*.bak
+ignore/
+
+###########
+# OS Junk
+###########
+Thumbs.db
+Desktop.in
+.DS_Store
+._.DS_Store
+__MACOSX/
+
+#############
+# IDE Stuff
+#############
+./php53.cgi
+*.sublime-project
+*.sublime-workspace
+.idea
+.phpintel
+.phpintel/
+oracle.sqlite
+
+#####################
+# Task Runner Stuff
+#####################
+.sass-cache
+node_modules/
+
+########
+# Logs
+########
+changelog/
+*.log
+
+
+
+

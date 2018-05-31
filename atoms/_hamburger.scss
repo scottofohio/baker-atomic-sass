@@ -1,0 +1,36 @@
+/*-------------------------------------------------------*\
+    site logo
+/*-------------------------------------------------------*/
+
+#hamburger {
+    z-index: 900;
+    cursor: pointer;
+    width: 50px;
+    height: 25px;
+    position: relative;
+    font-size: 0;
+    overflow: hidden;
+    &:before {
+        content: '';
+        position: absolute;
+        width: 50%;
+        height: 3px;
+        background: $primary;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+        margin: auto;
+    }
+    &:after {
+        content: "";
+        @include mobile-menu-box-shadow(0, -8px, 0, 0, 8px, 0, $primary);
+        position: absolute;
+        width: 50%;
+        height: 3px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        right: 0;
+    }
+}

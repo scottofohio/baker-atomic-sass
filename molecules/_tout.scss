@@ -1,0 +1,33 @@
+/*-------------------------------------------------------*\
+    Cards
+/*-------------------------------------------------------*/
+
+.tout {
+    position: relative;
+    overflow: hidden;
+    img {
+         @include transition(.25s, all, ease);
+    }
+    &:hover {
+        img {
+            opacity: .8;
+             @include transition(.25s, all, ease);
+        }
+        > figcaption {
+            bottom: 0;
+            @include transition(.25s, all, ease);
+        }
+    }
+    figcaption {
+        position: absolute;
+        background: #000;
+        bottom: -100%;;
+        padding: 20px;
+        @include transition(.25s, all, ease);
+        
+        width: 100%;
+        p, h3, a {
+             color: #fff;
+        }
+    }
+}

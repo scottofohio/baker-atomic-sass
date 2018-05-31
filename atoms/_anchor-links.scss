@@ -1,0 +1,35 @@
+/*-------------------------------------------------------*\
+  ATOMS : Anchor Links
+/*-------------------------------------------------------*/
+a {
+  color: $secondary;
+  cursor: pointer;
+  text-decoration: none;
+  outline: 0;
+  // font-family: $
+  @include rasmus(700, normal);
+
+  @include break-at($medium-break) {
+    @include transition(0.25s, all, ease);
+  }
+
+  font-size: em(15px);
+
+  @include break-at($x-large-break) {
+    font-size: vw(13px);
+  }
+
+  &:hover {
+    // color: $quaternary-brand-color;
+    text-decoration: underline;
+  }
+
+  &:active {
+    color: darken($secondary, 10%);
+  }
+
+  &:focus {
+    color: darken($secondary, 10%);
+  }
+
+}

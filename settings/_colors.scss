@@ -1,0 +1,37 @@
+/*-------------------------------------------------------*\
+    Colors
+/*-------------------------------------------------------*/
+
+/* Main Theme Colors */
+
+
+$primary: #000;
+$secondary: #333;
+
+
+/* Alert Colors */
+$error-color: rgba(#ff2020, 0.5);
+$white-transparent: rgba(255, 255, 255, 0.9);
+$white-more-transparent: rgba(247, 247, 247, 0.7);
+$black-transparent: rgba(black, 0.5);
+$medium-gray: #838385;
+$neutral-color: $medium-gray;
+$soft-gray: #959597;
+$light-gray: #DDDDDD;
+$lightest-gray: #F4F4F4;
+$dark-bg-color: #5A6970;
+$light-text-gray: #A7A7A7;
+$light-gray-bg: #F7F7F7;
+
+
+/* Mono-Saturated */
+$medium-gray: #5e5e5e;
+$soft-gray: #a7a7a7;
+$dark-bg-color: #5a6970;
+$light-text-gray: #a7a7a7;
+$light-gray-bg: #efefef;
+$white-transparent: rgba(255, 255, 255, 0.9);
+$white-more-transparent: rgba(247, 247, 247, 0.7);
+
+/* Generic Defaults */
+$error-color: rgba(#ff2020, 0.5);

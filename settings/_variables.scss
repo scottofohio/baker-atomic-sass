@@ -1,0 +1,43 @@
+/*-------------------------------------------------------*\
+    Variables
+/*-------------------------------------------------------*/
+
+/*  Grid */
+$grid-width: 1000px;
+$grid-inner-width: 900px;
+$min-device-width: 200px;
+$columns: 12 !default;
+$column-width: 65px !default;
+// $gutter-width: 10px !default;
+$gutter-width: 20px !default;
+$large-grid-width: 1480px;
+$mobile-gutter: 20px;
+
+/* Basic or Advanced usage */
+$advanced-usage: false !default;
+
+/* Breakpoints */
+$tiny-break: em(420px);
+$small-break: em(600px);
+$medium-break: em(780px);
+$large-break: em(1024px);
+$x-large-break: em(1200px);
+$banner-width: em(680px);
+
+$S: 320px;
+$M: 768px;
+$L: 1170px;
+
+/* Panels */
+$panel-color: #fff;
+$panel-padding: 15px;
+$default-float: left;
+
+/* Layout */
+$padding: 120px;
+$padding-small: 40px;
+$padding-medium: 75px;
+$aside-width: 260px;
+$copy-block-width: 360px;
+$hgap: 18px;
+$pgap: 20px;
